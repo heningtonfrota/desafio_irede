@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Api\Auth\{
     AuthController,
-    UserController
+    UserController,
+    CategoryController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,7 @@ Route::get('auth/create-token', [AuthController::class, 'createToken']);
 
 Route::middleware('auth:sanctum')->prefix('auth')->group(function() {
     Route::apiResources([
-        'users' => UserController::class
+        'users' => UserController::class,
+        'categories' => CategoryController::class
     ]);
 });
